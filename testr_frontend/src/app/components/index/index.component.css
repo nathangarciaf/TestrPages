@@ -1,0 +1,36 @@
+.question-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.question-item {
+  margin-bottom: 10px;
+}
+
+.question-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.question-link:hover {
+  text-decoration: underline;
+}
+
+.no-polls-message {
+  font-size: 18px;
+  color: var(--secondary-color);
+}
+
+.footer {
+  color: black;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10pt;
+  width: 100%;
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  z-index: 10;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
