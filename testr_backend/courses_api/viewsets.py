@@ -7,7 +7,7 @@ from .serializers import CourseSerializer, SectionSerializer, QuestionSerializer
 from .models import Course, Section, Question
 
 class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all().order_by('-course_name')
+    queryset = Course.objects.all()
     serializer_class = CourseSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [SessionAuthentication]
@@ -21,7 +21,7 @@ class CourseViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
 class SectionViewSet(viewsets.ModelViewSet):
-    queryset = Section.objects.all().order_by('-section_name')
+    queryset = Section.objects.all()
     serializer_class = SectionSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [SessionAuthentication]

@@ -1,41 +1,38 @@
 from django.contrib import admin
 from .models import Course, Section, Question
 
-class SectionInline(admin.TabularInline):
-    model = Section
-    extra = 2
-
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ["course_name"]
-    search_fields = ["course_name"]
+    list_display = ["name", "created_at"]
+    search_fields = ["name"]
     fieldsets = [
-        (None, {"fields": ["course_name"]}),
+        (None, {"fields": ["name"]}),
+        ("Created at", {"fields": ["created_at"]}),
     ]
-
-    inlines = [SectionInline]
-
-admin.site.register(Course, CourseAdmin)
-
-class QuestionInline(admin.TabularInline):
-    model = Question
-    extra = 2
 
 class SectionAdmin(admin.ModelAdmin):
-    list_display = ["section_name"]
-    search_fields = ["section_name"]
+    list_display = ["name", "created_at"]
+    search_fields = ["name"]
     fieldsets = [
-        (None, {"fields": ["section_name"]}),
+        (None, {"fields": ["name"]}),
+        ("Created at", {"fields": ["created_at"]}),
+        ("Course", {"fields": ["course"]}),
     ]
-
-    inlines = [QuestionInline]
-
-admin.site.register(Section, SectionAdmin)
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ["question_text"]
-    search_fields = ["question_text"]
+    list_display = ["name", "description", "created_at", "submission_deadline", "memory_limit",
+                    "time_limit_seconds", "cpu_limit"]
+    search_fields = ["name"]
     fieldsets = [
-        (None, {"fields": ["question_text"]}),
+        (None, {"fields": ["name"]}),
+        ("Description", {"fields": ["description"]}),
+        ("Created at", {"fields": ["created_at"]}),
+        ("Submission deadline", {"fields": ["submission_deadline"]}),
+        ("Memory limit", {"fields": ["memory_limit"]}),
+        ("Time limit (seconds)", {"fields": ["time_limit_seconds"]}),
+        ("CPU limit", {"fields": ["cpu_limit"]}),
+        ("Section", {"fields": ["section"]}), 
     ]
 
+admin.site.register(Section, SectionAdmin)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Course, CourseAdmin)

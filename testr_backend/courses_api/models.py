@@ -1,29 +1,43 @@
 from django.db import models
-from django.contrib import admin
 from django.utils import timezone
-import datetime
+from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
 
 class Course(models.Model):
-    course_name = models.CharField(max_length=200)
-
-    @admin.display(
-        boolean=True,
-        ordering="course_name",
-    )
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-	    return self.course_name
+	    return self.name
     
 class Section(models.Model):
-    section_name = models.CharField(max_length=200)
-    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-	    return self.section_name
+        return self.name
     
-class Question(models.Model):
-	question_text = models.CharField(max_length=200)
-	section = models.ForeignKey(Section, on_delete=models.CASCADE)
+	
+class Language(models.TextChoices):
+    CCPP = 'CC', _('C/C++')
+    PYTHON = 'PT', _('Python')
 
-	def __str__(self):
-		return self.question_text
+class Question(models.Model):
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, default='')
+
+    time_limit_seconds = models.FloatField(default=30)
+    memory_limit = models.FloatField(default=200)
+    cpu_limit = models.FloatField(default=0.25)
+    created_at = models.DateTimeField(default=timezone.now)
+    submission_deadline = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name
+
+    def submission_is_open(self):
+        if timezone.now() < self.submission_deadline:
+            return True
+        return False
