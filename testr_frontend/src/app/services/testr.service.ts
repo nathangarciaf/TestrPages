@@ -38,6 +38,10 @@ export class TestrService {
 
     return this.httpClient.post<any>(`${this.API_URL}api/choices/${choiceId}/vote/`, {}, { headers,  withCredentials: true });
   }
+
+  login(username: string, password: string): Observable<any> {
+    return this.httpClient.post<any>(this.API_URL + 'api-auth/login', { username, password }, { withCredentials: true });
+  }
   
   logout(): Observable<any> {
     return this.httpClient.post<any>(this.API_URL + 'api-auth/logout', {}, { withCredentials: true });
