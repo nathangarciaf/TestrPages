@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { TestrService } from '../../services/testr.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,11 +10,11 @@ export class RegisterComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private apiService: ApiService) {}
+  constructor(private testrService: TestrService) {}
 
   register() {
     if (this.username && this.password) {
-      this.apiService.register(this.username, this.password)
+      this.testrService.register(this.username, this.password)
         .subscribe(
           (response) => {
             console.log('Registration successful:', response);

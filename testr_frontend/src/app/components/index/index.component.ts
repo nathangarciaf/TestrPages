@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { TestrService } from '../../services/testr.service';
 import { Router } from '@angular/router';
 import { Question } from '../../interfaces/question';
 
@@ -11,16 +11,16 @@ import { Question } from '../../interfaces/question';
 export class IndexComponent implements OnInit {
   questions: Question[] = [];
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private testrService: TestrService, private router: Router) { }
 
   ngOnInit(): void {
     // Verifica se o usuário está autenticado
-    this.apiService.isAuthenticated().subscribe(isAuthenticated => {
+    this.testrService.isAuthenticated().subscribe(isAuthenticated => {
       if (!isAuthenticated) {
         this.router.navigate(['/login']);
       } else {
         // Se autenticado, busca as perguntas
-        this.apiService.getQuestions().subscribe(
+        this.testrService.getQuestions().subscribe(
           (questions: Question[]) => {
             this.questions = questions;
           },

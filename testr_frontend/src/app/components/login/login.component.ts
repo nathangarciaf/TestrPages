@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { TestrService } from '../../services/testr.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +11,11 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private apiService: ApiService) {}
+  constructor(private testrService: TestrService) {}
 
   login() {
     if (this.username && this.password) {
-      this.apiService.login(this.username, this.password)
+      this.testrService.login(this.username, this.password)
         .subscribe(
           (response) => {
             console.log('Login successful:', response);

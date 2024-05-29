@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Question } from '../../interfaces/question';
+import { Choice } from '../../interfaces/choice';
 import { TestrService } from '../../services/testr.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Choice } from '../../interfaces/choice';
-import { Question } from '../../interfaces/question';
 
 @Component({
-  selector: 'app-question-detail',
-  templateUrl: './question-detail.component.html',
-  styleUrls: ['./question-detail.component.css']
+  selector: 'app-result',
+  templateUrl: './result.component.html',
+  styleUrl: './result.component.css'
 })
-export class QuestionDetailComponent implements OnInit {
+export class ResultComponent implements OnInit {
   question: Question = {} as Question;
   choice_set: Choice[] = [];
   error_message: string = '';
@@ -39,17 +39,5 @@ export class QuestionDetailComponent implements OnInit {
       });
     });
   }
-
-  async vote() {
-    if (!this.selectedChoice) {
-      this.error_message = 'Por favor, selecione uma opção antes de votar.';
-      return;
-    }
-    try {
-      await this.testrService.vote(this.selectedChoice).toPromise();
-      this.router.navigate(['/question', this.question.id, 'result']);
-    } catch (error) {
-      console.error('Erro ao votar:', error);
-    }
-  }
+  
 }
