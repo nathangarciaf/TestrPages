@@ -12,21 +12,13 @@ export class TestrService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getQuestions(): Observable<any> {
-    return this.httpClient.get<any>(this.API_URL + 'api/questions', { withCredentials: true });
-  }
-
-  getQuestion(id: number): Observable<any> {
-    return this.httpClient.get<any>(`${this.API_URL}api/questions/${id}`, { withCredentials: true });
-  }
-
   //Course API
-  getQuestionst(id: number): Observable<any> {
+  getQuestions(id: number): Observable<any> {
     return this.httpClient.get<any>(`${this.API_URL}sections/${id}/questions`, { withCredentials: true });
   }
 
   //Course API
-  getQuestiont(id: number): Observable<any> {
+  getQuestion(id: number): Observable<any> {
     return this.httpClient.get<any>(`${this.API_URL}questions/${id}`, { withCredentials: true });
   }
 

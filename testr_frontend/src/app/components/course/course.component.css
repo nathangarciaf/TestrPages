@@ -5,6 +5,13 @@
     font-weight: bold;
     margin-bottom: 2%;
   }
+
+  .new-question {
+    max-width: 50%;
+    margin: 0 auto;
+    font-size: 12pt;
+    margin-bottom: 10px;
+  }
   
   .courses {
     max-width: 50%;
@@ -16,7 +23,7 @@
   }
   
   .course-link {
-    color: var(--primary-color);
+    color: blue;
     text-decoration: none;
     font-size: 15pt;
   }

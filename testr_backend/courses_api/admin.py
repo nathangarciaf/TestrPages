@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, Section, Question
+from .models.models import Course, Section, Question
 
 class CourseAdmin(admin.ModelAdmin):
     list_display = ["name", "created_at"]

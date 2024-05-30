@@ -3,7 +3,7 @@ import { TestrService } from '../../services/testr.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../../interfaces/course';
 import { Section } from '../../interfaces/section';
-import { Questiont } from '../../interfaces/questiont';
+import { Question } from '../../interfaces/question';
 
 @Component({
   selector: 'app-section-questions',
@@ -12,7 +12,7 @@ import { Questiont } from '../../interfaces/questiont';
 })
 export class SectionQuestionsComponent implements OnInit {
   section: Section = {} as Course;
-  questions: Questiont[] = [];
+  questions: Question[] = [];
   error_message: string = '';
 
   constructor(
@@ -34,10 +34,9 @@ export class SectionQuestionsComponent implements OnInit {
         this.section = section;
       });
 
-      this.testrService.getQuestionst(id).subscribe((questions_set) => {
+      this.testrService.getQuestions(id).subscribe((questions_set) => {
         this.questions = questions_set;
       });
-      
     });
   }
 }

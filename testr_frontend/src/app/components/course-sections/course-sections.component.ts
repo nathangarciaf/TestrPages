@@ -3,7 +3,6 @@ import { TestrService } from '../../services/testr.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../../interfaces/course';
 import { Section } from '../../interfaces/section';
-import { Questiont } from '../../interfaces/questiont';
 
 @Component({
   selector: 'app-course-sections',

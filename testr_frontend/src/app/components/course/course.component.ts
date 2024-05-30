@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestrService } from '../../services/testr.service';
 import { Router } from '@angular/router';
-import { Questiont } from '../../interfaces/questiont';
+import { Question } from '../../interfaces/question';
 import { Course } from '../../interfaces/course';
 
 @Component({
@@ -10,7 +10,7 @@ import { Course } from '../../interfaces/course';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-  questions: Questiont[] = [];
+  questions: Question[] = [];
   courses: Course[] = [];
 
   constructor(private testrService: TestrService, private router: Router) { }
