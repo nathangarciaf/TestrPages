@@ -4,7 +4,7 @@ from .models import Course, Section, Question
 class CourseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Course
-        fields = ['url', 'id', 'name', 'created_at']
+        fields = ['url', 'id', 'name', 'created_at', 'visible']
         
 class SectionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
