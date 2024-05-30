@@ -6,13 +6,13 @@ import { Section } from '../../interfaces/section';
 import { Questiont } from '../../interfaces/questiont';
 
 @Component({
-  selector: 'app-course-sections',
-  templateUrl: './course-sections.component.html',
-  styleUrls: ['./course-sections.component.css']
+  selector: 'app-section-questions',
+  templateUrl: './section-questions.component.html',
+  styleUrls: ['./section-questions.component.css']
 })
-export class CourseSectionsComponent implements OnInit {
-  course: Course = {} as Course;
-  sections: Section[] = [];
+export class SectionQuestionsComponent implements OnInit {
+  section: Section = {} as Course;
+  questions: Questiont[] = [];
   error_message: string = '';
 
   constructor(
@@ -30,12 +30,12 @@ export class CourseSectionsComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       const id = params['id'];
-      this.testrService.getCourse(id).subscribe((course) => {
-        this.course = course;
+      this.testrService.getSection(id).subscribe((section) => {
+        this.section = section;
       });
 
-      this.testrService.getSections(id).subscribe((sections_set) => {
-        this.sections = sections_set;
+      this.testrService.getQuestionst(id).subscribe((questions_set) => {
+        this.questions = questions_set;
       });
       
     });

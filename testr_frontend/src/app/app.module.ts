@@ -17,6 +17,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { SectionQuestionsComponent } from './components/section-questions/section-questions.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
     ResultComponent,
     CourseComponent,
     CourseSectionsComponent,
+    SectionQuestionsComponent,
   ],
   imports: [
     BrowserModule,

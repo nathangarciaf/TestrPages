@@ -1,0 +1,16 @@
+<div class="section-name">{{ section.name }}</div>
+
+<main>
+    <div class="back-link"><a [routerLink]="['/course', section.id]">Back</a></div>
+    <div *ngIf="questions.length > 0; else noQuestions" class="questions">
+        <ul>
+            <div *ngFor="let question of questions; index as i" class="section-item">
+                <a [routerLink]="['/questions', question.id]">{{ i+1 }}. {{ question.name }}</a>
+            </div>
+        </ul>   
+    </div>
+</main>
+
+<ng-template #noQuestions>
+    <p class="no-questions-message">No questions are available.</p>
+</ng-template>

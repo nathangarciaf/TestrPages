@@ -1,15 +1,10 @@
-.course-name{
+.section-name{
     font-size: 2.5rem;
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     font-weight: bold;
     margin-bottom: 2%;
 }
-
-.sections {
-    max-width: 50%;
-    margin: 0 auto;
-  }
 
 .questions {
   max-width: 50%;
@@ -30,7 +25,8 @@
   font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.no-section-message {
+.no-questions-message {
+    max-width: 50%;
     font-size: 18px;
     color: black;
     font-weight: bold;

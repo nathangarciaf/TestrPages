@@ -6,12 +6,14 @@ import { QuestionDetailComponent } from './components/question-detail/question-d
 import { ResultComponent } from './components/result/result.component';
 import { CourseComponent } from './components/course/course.component';
 import { CourseSectionsComponent } from './components/course-sections/course-sections.component';
+import { SectionQuestionsComponent } from './components/section-questions/section-questions.component';
 
 const routes: Routes = [
   { path: '', component: CourseComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'course/:id', component: CourseSectionsComponent },
+  { path: 'section/:id', component: SectionQuestionsComponent },
   { path: 'question/:id', component: QuestionDetailComponent },
   { path: 'question/:id/result', component: ResultComponent},
 ];

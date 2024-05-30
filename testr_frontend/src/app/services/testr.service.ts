@@ -44,21 +44,8 @@ export class TestrService {
     return this.httpClient.get<any>(`${this.API_URL}courses/${id}/sections`, { withCredentials: true });
   }
 
-  // método para buscar as opções de uma pergunta com autenticação por sessão
-  getChoices(id: number): Observable<any> {
-    return this.httpClient.get<any>(`${this.API_URL}api/questions/${id}/choices`, { withCredentials: true });
-  }
-
-  // método para votar em uma opção com autenticação por sessão
-  vote(choiceId: number): Observable<any> {
-    const csrfToken = this.getCookie('csrftoken');
-    console.log('Token CSRF:', csrfToken);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-CSRFToken': csrfToken !== null ? csrfToken : '' // Inclui o token CSRF no cabeçalho da solicitação
-    });
-
-    return this.httpClient.post<any>(`${this.API_URL}api/choices/${choiceId}/vote/`, {}, { headers,  withCredentials: true });
+  getSection(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${this.API_URL}sections/${id}`, { withCredentials: true });
   }
 
   login(username: string, password: string): Observable<any> {
