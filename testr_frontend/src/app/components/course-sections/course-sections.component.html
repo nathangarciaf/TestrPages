@@ -1,6 +1,7 @@
 <div class="course-name">{{ course.name }}</div>
 
 <main>
+    <a [routerLink]="['/']" class="back-link">Back</a>
     <div *ngIf="sections.length > 0; else noSections" class="sections">
         <ul>
             <div *ngFor="let section of sections; index as i">

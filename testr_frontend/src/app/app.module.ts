@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ResultComponent } from './components/result/result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseSectionsComponent } from './components/course-sections/course-sections.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -38,6 +39,8 @@ import { CourseSectionsComponent } from './components/course-sections/course-sec
     })
   ],
   providers: [
+  
+    provideAnimationsAsync('noop')
   ],
   bootstrap: [AppComponent]
 })

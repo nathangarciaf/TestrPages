@@ -23,10 +23,17 @@
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  .question-item {
-    margin-bottom: 15px;
+.question-item {
+    margin-bottom: 5px;
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+
+.back-link {
+  color: red;
+  max-width: 50%;
+  margin: 0 auto;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .no-section-message {
     font-size: 18px;
