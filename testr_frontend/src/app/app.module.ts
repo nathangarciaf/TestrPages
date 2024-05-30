@@ -7,10 +7,12 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
+import { CourseComponent } from './components/course/course.component';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResultComponent } from './components/result/result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     QuestionDetailComponent,
     RegisterComponent,
-    ResultComponent
+    ResultComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
