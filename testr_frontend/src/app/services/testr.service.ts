@@ -12,14 +12,36 @@ export class TestrService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // método para buscar perguntas com autenticação por sessão
   getQuestions(): Observable<any> {
     return this.httpClient.get<any>(this.API_URL + 'api/questions', { withCredentials: true });
   }
 
-  // método para buscar uma pergunta específica com autenticação por sessão
   getQuestion(id: number): Observable<any> {
     return this.httpClient.get<any>(`${this.API_URL}api/questions/${id}`, { withCredentials: true });
+  }
+
+  //Course API
+  getQuestionst(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${this.API_URL}sections/${id}/questions`, { withCredentials: true });
+  }
+
+  //Course API
+  getQuestiont(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${this.API_URL}questions/${id}`, { withCredentials: true });
+  }
+
+  getCourses(): Observable<any> {
+    return this.httpClient.get<any>(this.API_URL + 'courses', { withCredentials: true });
+  }
+
+  // método para buscar uma pergunta específica com autenticação por sessão
+  getCourse(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${this.API_URL}courses/${id}`, { withCredentials: true });
+  }
+
+  // método para buscar as opções de uma pergunta com autenticação por sessão
+  getSections(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${this.API_URL}courses/${id}/sections`, { withCredentials: true });
   }
 
   // método para buscar as opções de uma pergunta com autenticação por sessão

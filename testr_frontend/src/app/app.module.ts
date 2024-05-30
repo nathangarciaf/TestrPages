@@ -12,6 +12,7 @@ import { QuestionDetailComponent } from './components/question-detail/question-d
 import { RegisterComponent } from './components/register/register.component';
 import { ResultComponent } from './components/result/result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CourseSectionsComponent } from './components/course-sections/course-sections.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     ResultComponent,
     CourseComponent,
+    CourseSectionsComponent,
   ],
   imports: [
     BrowserModule,

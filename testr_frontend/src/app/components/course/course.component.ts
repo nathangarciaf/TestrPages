@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TestrService } from '../../services/testr.service';
 import { Router } from '@angular/router';
-import { Question } from '../../interfaces/question';
+import { Questiont } from '../../interfaces/questiont';
+import { Course } from '../../interfaces/course';
 
 @Component({
   selector: 'app-course',
@@ -9,7 +10,8 @@ import { Question } from '../../interfaces/question';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-  questions: Question[] = [];
+  questions: Questiont[] = [];
+  courses: Course[] = [];
 
   constructor(private testrService: TestrService, private router: Router) { }
 
@@ -20,9 +22,9 @@ export class CourseComponent implements OnInit {
         this.router.navigate(['/login']);
       } else {
         // Se autenticado, busca as perguntas
-        this.testrService.getQuestions().subscribe(
-          (questions: Question[]) => {
-            this.questions = questions;
+        this.testrService.getCourses().subscribe(
+          (courses: Course[]) => {
+            this.courses = courses;
           },
           error => {
             console.error('Erro ao buscar perguntas:', error);

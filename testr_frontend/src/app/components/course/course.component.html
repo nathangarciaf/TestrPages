@@ -1,13 +1,14 @@
-<div class="courses-title">Courses</div>
+<div class="course-title">Courses</div>
+<main>
+	<div *ngIf="courses.length > 0; else noCourses" class="courses">
+		<ul>
+				<div *ngFor="let course of courses" class="course-item">
+						<a [routerLink]="['/course', course.id]" class="course-link">{{ course.name }}</a>
+				</div>
+		</ul>
+	</div>
+</main>
 
-<div *ngIf="questions.length > 0; else noPolls" class="question-list">
-	<ul>
-			<li *ngFor="let question of questions" class="question-item">
-					<a [routerLink]="['/question', question.id]" class="question-link">{{ question.question_text }}</a>
-			</li>
-	</ul>
-</div>
-
-<ng-template #noPolls>
-	<p class="no-polls-message">No polls are available.</p>
+<ng-template #noCourses>
+	<p class="no-course-message">No courses are available.</p>
 </ng-template>
