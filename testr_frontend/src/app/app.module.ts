@@ -14,7 +14,9 @@ import { ResultComponent } from './components/result/result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseSectionsComponent } from './components/course-sections/course-sections.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'csrftoken',
       headerName: 'X-CSRFToken'
