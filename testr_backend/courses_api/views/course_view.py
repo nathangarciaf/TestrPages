@@ -1,4 +1,4 @@
-from ..models.models import Course
+from ..models.course import Course
 from ..serializers.section_serializer import SectionSerializer
 from ..serializers.course_serializer import CourseSerializer
 from rest_framework import permissions, viewsets
