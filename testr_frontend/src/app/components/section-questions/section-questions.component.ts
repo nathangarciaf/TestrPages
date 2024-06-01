@@ -22,11 +22,6 @@ export class SectionQuestionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.testrService.isAuthenticated().subscribe(isLoggedIn => {
-      if (!isLoggedIn) {
-        this.router.navigate(['/login']);
-      }
-    });
 
     this.route.params.subscribe(params => {
       const id = params['id'];

@@ -3,6 +3,7 @@ import { TestrService } from '../../services/testr.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../../interfaces/course';
 import { Section } from '../../interfaces/section';
+import { Question } from '../../interfaces/question';
 
 @Component({
   selector: 'app-course-sections',
@@ -10,8 +11,10 @@ import { Section } from '../../interfaces/section';
   styleUrls: ['./course-sections.component.css']
 })
 export class CourseSectionsComponent implements OnInit {
+  questions: Question[] = [];
   course: Course = {} as Course;
   sections: Section[] = [];
+  actual_section: Section = {} as Section;
   error_message: string = '';
 
   constructor(
@@ -21,11 +24,6 @@ export class CourseSectionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.testrService.isAuthenticated().subscribe(isLoggedIn => {
-      if (!isLoggedIn) {
-        this.router.navigate(['/login']);
-      }
-    });
 
     this.route.params.subscribe(params => {
       const id = params['id'];
@@ -36,7 +34,13 @@ export class CourseSectionsComponent implements OnInit {
       this.testrService.getSections(id).subscribe((sections_set) => {
         this.sections = sections_set;
       });
-      
     });
+  }
+
+  funcaoNoTS(index: number): string {
+    // Aqui você pode usar o índice para acessar a seção correspondente ou fazer o que precisar
+    console.log('Índice:', index);
+    // Faça o que precisar com o índice ou a seção correspondente
+    return 'Resultado da função para a seção ' + index;
   }
 }

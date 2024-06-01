@@ -1,4 +1,4 @@
-from ..models.models import Question
+from ..models.question import Question
 from ..serializers.question_serializer import  QuestionSerializer
 from rest_framework import permissions, viewsets
 from rest_framework.authentication import SessionAuthentication

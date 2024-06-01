@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TestrService } from '../../services/testr.service';
 import { Router } from '@angular/router';
-import { Question } from '../../interfaces/question';
 import { Course } from '../../interfaces/course';
 
 @Component({
@@ -10,7 +9,6 @@ import { Course } from '../../interfaces/course';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-  questions: Question[] = [];
   courses: Course[] = [];
 
   constructor(private testrService: TestrService, private router: Router) { }
@@ -18,9 +16,6 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
     // Verifica se o usuário está autenticado
     this.testrService.isAuthenticated().subscribe(isAuthenticated => {
-      if (!isAuthenticated) {
-        this.router.navigate(['/login']);
-      } else {
         // Se autenticado, busca as perguntas
         this.testrService.getCourses().subscribe(
           (courses: Course[]) => {
@@ -30,7 +25,6 @@ export class CourseComponent implements OnInit {
             console.error('Erro ao buscar perguntas:', error);
           }
         );
-      }
     });
   }
 }

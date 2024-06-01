@@ -42,7 +42,7 @@ import { QuestionComponent } from './components/question/question.component';
     })
   ],
   providers: [
-  
+
     provideAnimationsAsync('noop')
   ],
   bootstrap: [AppComponent]

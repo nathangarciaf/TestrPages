@@ -1,4 +1,4 @@
-from ..models.models import Section
+from ..models.section import Section
 from ..serializers.section_serializer import SectionSerializer
 from ..serializers.question_serializer import QuestionSerializer
 from rest_framework import permissions, viewsets

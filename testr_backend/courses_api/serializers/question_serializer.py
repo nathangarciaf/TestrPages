@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models.models import Question
+from ..models.question import Question
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

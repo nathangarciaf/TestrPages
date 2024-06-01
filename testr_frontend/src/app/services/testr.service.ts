@@ -41,19 +41,19 @@ export class TestrService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(this.API_URL + 'api-auth/login', { username, password }, { withCredentials: true });
+    return this.httpClient.post<any>(this.API_URL + 'api-auth/login/', { username, password }, { withCredentials: true });
   }
   
   logout(): Observable<any> {
-    return this.httpClient.post<any>(this.API_URL + 'api-auth/logout', {}, { withCredentials: true });
+    return this.httpClient.post<any>(this.API_URL + 'api-auth/logout/', {}, { withCredentials: true });
   }
 
   register(username: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(this.API_URL + 'api-auth/register', { username, password }, { withCredentials: true });
+    return this.httpClient.post<any>(this.API_URL + 'api-auth/register/', { username, password }, { withCredentials: true });
   }
 
   whoAmI(): Observable<any> {
-    return this.httpClient.get<any>(this.API_URL + 'api-auth/user', { withCredentials: true });
+    return this.httpClient.get<any>(this.API_URL + 'api-auth/user/', { withCredentials: true });
   }
 
   isAuthenticated(): Observable<boolean> {
