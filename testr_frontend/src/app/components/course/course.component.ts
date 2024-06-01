@@ -10,7 +10,6 @@ import { Course } from '../../interfaces/course';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-  questions: Question[] = [];
   courses: Course[] = [];
 
   constructor(private testrService: TestrService, private router: Router) { }
